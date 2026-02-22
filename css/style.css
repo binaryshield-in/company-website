@@ -709,14 +709,19 @@ body {
 /* Responsive adjustments */
 @media (max-width: 991px) {
     .hero-visual-wrapper {
-        height: 400px;
+        height: 300px;
         transform: scale(0.7);
     }
 
     .home {
         text-align: center;
-        padding-top: 10rem;
-        height: auto;
+        padding: 0;
+        height: 100vh;
+        height: 100svh;
+    }
+
+    .home .hero-container {
+        padding: 13rem 1.5rem 0;
     }
 
     .hero-text-col {
@@ -727,6 +732,10 @@ body {
 
     .hero-btns {
         justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        max-width: 75%;
+        margin: 0 auto 4rem;
     }
 
     .hero-trust-row {
@@ -736,10 +745,12 @@ body {
         padding: 1.5rem;
         border-radius: 12px;
         background: rgba(255, 255, 255, 0.03);
+        max-width: 75%;
+        margin: 0 auto;
     }
 
     .home h1 {
-        font-size: 3.5rem;
+        font-size: 4.5rem;
     }
 
     .home .hero-sub {
