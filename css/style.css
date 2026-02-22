@@ -1028,6 +1028,17 @@ body {
     color: var(--primary);
 }
 
+/* ===== SERVICES & PRODUCTS GRID ===== */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
 /* ===== GLASSMORPHISM CARDS ===== */
 .item {
     background: var(--glass-bg);
@@ -1038,7 +1049,6 @@ body {
     box-shadow: var(--glass-shadow);
     border-radius: 16px;
     margin-bottom: 30px;
-    margin-top: -2rem;
     border: 1px solid var(--glass-border);
     transition: all 0.4s ease;
     position: relative;
@@ -1068,16 +1078,14 @@ body {
 }
 
 .item:hover .item,
-/* ===== DARK GLASSMORPHISM CARDS (SERVICES/PRODUCTS) ===== */
 .item {
     background: rgba(15, 23, 42, 0.6);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     text-align: center;
-    padding: 3.5rem 2.5rem;
+    padding: 4rem 2.5rem;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), inset 0 0 15px rgba(255, 255, 255, 0.03);
     border-radius: 20px;
-    margin-bottom: 2.5rem;
     border: 1px solid var(--glass-border);
     transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
@@ -1116,11 +1124,10 @@ body {
 }
 
 .item .icon {
-    width: 6.5rem;
-    /* Scaled down */
-    height: 6.5rem;
-    /* Scaled down */
-    line-height: 6.5rem;
+    width: 8rem;
+    /* Increased to match Trusted Frameworks */
+    height: 8rem;
+    line-height: 8rem;
     border-radius: 15px;
     background: rgba(238, 27, 36, 0.1);
     border: 1px solid rgba(238, 27, 36, 0.2);
@@ -1151,8 +1158,8 @@ body {
 }
 
 .item h6 {
-    font-size: 1.8rem;
-    /* Reduced font size */
+    font-size: 2.2rem;
+    /* Increased to match Trusted Frameworks */
     font-weight: 700;
     color: #fff;
     margin-bottom: 1.5rem;
@@ -2153,6 +2160,7 @@ body {
     display: flex;
     gap: 1.2rem;
     margin-top: 2rem;
+    margin-bottom: 3rem;
 }
 
 .social-links-footer a {
@@ -2219,8 +2227,24 @@ body {
 
     .footer-bottom-flex {
         flex-direction: column;
-        gap: 1.5rem;
+        gap: 2rem;
         text-align: center;
+        padding: 1rem 0;
+    }
+
+    .copyright-text {
+        font-size: 1.1rem;
+        line-height: 1.6;
+    }
+
+    .footer-bottom-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1.5rem 2rem;
+    }
+
+    .footer-bottom-links a {
+        font-size: 1.1rem;
     }
 }
 
@@ -2449,52 +2473,70 @@ body {
         grid-template-columns: 1fr;
     }
 
+    /* ===== CONTACT SECTION - MOBILE REWRITE ===== */
     .contact {
+        padding: 8rem 0;
         text-align: center;
-        align-items: center;
+        overflow: visible;
     }
 
     .contact .heading {
-        margin-bottom: 3rem;
-        margin-top: -2rem;
+        font-size: 3rem;
+        margin-bottom: 4rem;
     }
 
+    /* Wrapper: stack form on top, map below */
     .contact-in {
-        width: 100%;
-        padding: 1.5rem;
+        width: calc(100% - 3rem);
+        max-width: 100%;
         flex-direction: column;
+        padding: 3rem 2rem;
+        border-radius: 16px;
+        gap: 0;
+        margin: 0 1.5rem;
     }
 
-    .contact-map {
-        min-height: 300px;
-        order: 2;
-    }
-
+    /* Form: always on top */
     .contact-form {
-        padding: 1rem;
         order: 1;
+        padding: 1.5rem 0;
+        width: 100%;
     }
 
-    .contact-form-btn-wrapper {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 1.5rem;
+    /* Map: below the form with clear gap */
+    .contact-map {
+        order: 2;
         width: 100%;
+        min-height: 250px;
+        margin-top: 3rem;
+        border-radius: 12px;
+        overflow: hidden;
+    }
+
+    .contact-map iframe {
+        width: 100%;
+        height: 250px;
+        border-radius: 12px;
+    }
+
+    /* Form inputs */
+    .contact-form form {
+        gap: 2rem;
     }
 
     .contact-form-txt,
     .contact-form-email,
     .contact-form-phone {
         width: 100%;
-        height: 50px;
+        height: 5.2rem;
         color: var(--text-primary);
         border: 1px solid var(--glass-border);
         border-radius: 50px;
         outline: none;
-        margin-bottom: 2rem;
         padding: 0 2rem;
-        background: var(--bg-dark);
+        background: rgba(2, 6, 23, 0.6);
+        font-size: 1.5rem;
+        font-family: 'Poppins', sans-serif;
     }
 
     .contact-form-txt::placeholder,
@@ -2506,15 +2548,16 @@ body {
 
     .contact-form-txtarea {
         width: 100%;
-        height: 120px;
+        height: 140px;
         color: var(--text-primary);
         border: 1px solid var(--glass-border);
         border-radius: 12px;
         outline: none;
-        margin-bottom: 2rem;
         padding: 1.5rem 2rem;
         font-family: 'Poppins', sans-serif;
-        background: var(--bg-dark);
+        font-size: 1.4rem;
+        background: rgba(2, 6, 23, 0.6);
+        resize: none;
     }
 
     .contact-form-txtarea::placeholder {
@@ -2522,35 +2565,48 @@ body {
         font-size: 1.4rem;
     }
 
-    .contact-form-btn {
-        margin: 0;
-        outline: none;
-        border: none;
-        border-radius: 5rem;
-        background: var(--primary);
-        font-size: 1.6rem;
-        cursor: pointer;
-        height: 4.8rem;
+    /* Buttons - side by side */
+    .contact-form-btn-wrapper {
+        flex-direction: row;
+        gap: 1.2rem;
+        margin-top: 1rem;
         width: 100%;
-        box-shadow: 0 0 15px var(--primary-glow);
+    }
+
+    .contact-form-btn {
+        flex: 1;
+        height: 5rem;
+        border-radius: 5rem;
+        font-size: 1.3rem;
+        font-family: 'JetBrains Mono', monospace;
+        font-weight: 700;
+        letter-spacing: 0.5px;
         display: flex;
         align-items: center;
         justify-content: center;
-        gap: 1rem;
+        gap: 0.8rem;
+        cursor: pointer;
+        border: none;
+        outline: none;
     }
 
-    .contact-form-btn:hover {
+    .contact-form-btn[name="submit"] {
+        background: linear-gradient(135deg, var(--primary), var(--accent));
+        box-shadow: 0 4px 20px var(--primary-glow);
+    }
+
+    .contact-form-btn.google-form-btn {
         background: transparent;
-        border: 2px solid var(--primary);
-        color: var(--primary);
+        border: 1px solid var(--glass-border);
+        color: #fff;
     }
 
+    /* Back to top button */
     .back-to-top {
         width: 30px;
         height: 30px;
         font-size: 30px;
     }
-
 
     .communicate h3 {
         font-size: 2.5rem;
@@ -2729,14 +2785,18 @@ body {
 }
 
 @media (max-width: 991px) {
-    .trust-grid {
+
+    .trust-grid,
+    .services-grid {
         grid-template-columns: repeat(2, 1fr);
         padding: 0 2rem;
     }
 }
 
 @media (max-width: 600px) {
-    .trust-grid {
+
+    .trust-grid,
+    .services-grid {
         grid-template-columns: 1fr;
     }
 
@@ -3278,7 +3338,7 @@ body {
     /* Hero Section Mobile */
     .home {
         min-height: auto;
-        padding: 12rem 0 6rem 0;
+        padding: 15rem 0 10rem 0;
     }
 
     .home h1 {
@@ -3305,7 +3365,9 @@ body {
 
     .hero-trust-row {
         flex-wrap: wrap;
-        gap: 1rem;
+        gap: 2.5rem;
+        margin-top: 3rem;
+        margin-bottom: 5rem;
     }
 
     .trust-item {
@@ -3314,7 +3376,7 @@ body {
 
     /* About Section Mobile */
     .about {
-        padding: 5rem 0;
+        padding: 10rem 0;
     }
 
     .about .section-heading {
@@ -3349,14 +3411,48 @@ body {
         font-size: 1rem;
     }
 
-    /* Services/Products Grid */
-    .item {
-        margin-bottom: 2rem;
-    }
+    /* Fixed spacing via Grid gap */
 
     /* Team Cards */
+    /* Team Cards */
     .team .row .card {
-        margin: 2rem auto;
+        margin: 4rem auto;
+    }
+
+    .team-card .icons {
+        margin-bottom: 3rem;
+    }
+
+    .social-links-footer {
+        margin-bottom: 4rem;
+    }
+
+    /* Global Section Header Gaps */
+    .mb-5.text-center {
+        margin-bottom: 8rem !important;
+    }
+
+    /* Standardize all major sections on mobile */
+    .trust-section,
+    .team,
+    .contact,
+    .faq,
+    .resources-section,
+    .clients-section,
+    .services-section,
+    .products-section,
+    .process-section,
+    .communicate,
+    .counters,
+    .products-preview {
+        padding: 10rem 0 !important;
+    }
+
+    /* Standardize Section Headings */
+    .section-heading {
+        font-size: 3.2rem !important;
+        line-height: 1.2 !important;
+        margin-bottom: 2rem !important;
     }
 
     /* Footer */
